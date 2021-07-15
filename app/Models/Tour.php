@@ -11,6 +11,7 @@ class Tour extends Model
 
     protected $appends = [
         'category',
+        'bookings'
     ];
 
     protected $fillable = [
@@ -30,8 +31,18 @@ class Tour extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function bookings()
+    {
+        return $this->hasMany(BookingRequest::class);
+    }
+
     public function getCategoryAttribute()
     {
         return $this->category()->get();
+    }
+
+    public function getBookingsAttribute()
+    {
+        return count($this->bookings()->get());
     }
 }

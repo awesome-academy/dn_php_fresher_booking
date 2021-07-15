@@ -10,7 +10,7 @@ class Category extends Model
     use SoftDeletes;
 
     protected $appends = [
-        'tours', 'parent'
+        'parent'
     ];
 
     protected $fillable = [
@@ -24,19 +24,9 @@ class Category extends Model
         'updated_at' => 'datetime:Y-m-d H:00',
     ];
 
-    public function tours()
-    {
-        return $this->hasMany(Tour::class);
-    }
-
     public function parent()
     {
         return $this->belongsTo(self::class, 'parent_id');
-    }
-
-    public function getToursAttribute()
-    {
-        return $this->tours()->get();
     }
 
     public function getParentAttribute()
