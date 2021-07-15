@@ -4,18 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <link rel="stylesheet" href="{{asset('css/admin/bootstrap.min.css')}}">
-    <link href="{{asset('css/admin/allcss.css')}}" rel='stylesheet' type='text/css' />>
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- bootstrap-css -->
+    <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}">
+    <!-- //bootstrap-css -->
+    <!-- Custom CSS -->
+    <link href="{{asset('admin/css/style.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('admin/css/style-responsive.css')}}" rel="stylesheet" />
+    <!-- font CSS -->
     <link
         href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
         rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{asset('css/admin/font.css')}}" type="text/css" />
-    <link href="{{asset('css/admin/font-awesome.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/admin/morris.css')}}" type="text/css" />
-    <script src="{{asset('js/admin/jquery2.0.3.min.js')}}"></script>
-    <script src="{{asset('js/admin/raphael-min.js')}}"></script>
-    <script src="{{asset('js/admin/morris.js')}}"></script>
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="{{asset('admin/css/font.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('admin/css/font-awesome.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('admin/css/morris.css')}}" type="text/css" />
+    <!-- calendar -->
+    <link rel="stylesheet" href="{{asset('admin/css/monthly.css')}}">
+    <!-- //calendar -->
+    <!-- //font-awesome icons -->
+    <script src="{{asset('admin/js/jquery2.0.3.min.js')}}"></script>
+    <script src="{	{asset('admin/js/raphael-min.js')}}"></script>
+    <script src="{{asset('admin/js/morris.js')}}"></script>
+    @stack('scripts')
 </head>
 
 <body>
@@ -86,8 +97,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="images/2.png">
-                            <span class="username"></span>
+                            <img alt="" src="admin/images/2.png">
+                            <span class="username">{{Auth()->user()->name}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -127,12 +138,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </section>
         <!--main content end-->
     </section>
-    <script src="{{asset('js/admin/bootstrap.js')}}"></script>
-    <script src="{{asset('js/admin/jquery.dcjqaccordion.2.7.js')}}"></script>
-    <script src="{{asset('js/admin/alljs.js')}}"></script>
-    <script src="{{asset('js/admin/jquery.slimscroll.js')}}"></script>
-    <script src="{{asset('js/admin/jquery.nicescroll.js')}}"></script>
-    <script src="{{asset('js/admin/jquery.scrollTo.js')}}"></script>
+    <script src="{{asset('admin/js/bootstrap.js')}}"></script>
+    <script src="{{asset('admin/js/jquery.dcjqaccordion.2.7.js')}}"></script>
+    <script src="{{asset('admin/js/scripts.js')}}"></script>
+    <script src="{{asset('admin/js/jquery.slimscroll.js')}}"></script>
+    <script src="{{asset('admin/js/jquery.nicescroll.js')}}"></script>
+    <script src="{{asset('admin/js/jquery.scrollTo.js')}}"></script>
+    <script type="text/javascript" src="{{asset('admin/js/monthly.js')}}"></script>
+
 </body>
 
 </html>
