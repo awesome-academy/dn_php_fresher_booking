@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <!-- bootstrap-css -->
@@ -26,6 +27,7 @@
     <script src="{{asset('admin/js/jquery2.0.3.min.js')}}"></script>
     <script src="{	{asset('admin/js/raphael-min.js')}}"></script>
     <script src="{{asset('admin/js/morris.js')}}"></script>
+    <script src="{{asset('admin/js/common.js')}}"></script>
     @stack('scripts')
 </head>
 
@@ -97,7 +99,7 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="admin/images/2.png">
+                            <img alt="" src="{{asset('admin/images/2.png')}}">
                             <span class="username">{{Auth()->user()->name}}</span>
                             <b class="caret"></b>
                         </a>
@@ -107,7 +109,7 @@
                             </li>
                             <li><a href="#"><i class="fa fa-cog"></i>
                                     {{ trans('messages.app_layout.setting') }}</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i>
+                            <li id="btnLogout"><a href="#"><i class="fa fa-key"></i>
                                     {{ trans('messages.app_layout.logout') }}</a></li>
                         </ul>
                     </li>

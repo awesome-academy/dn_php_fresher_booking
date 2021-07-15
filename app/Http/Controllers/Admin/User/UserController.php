@@ -19,7 +19,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::paginate();
+        return View(
+            'admin.user.index',
+            [
+                'users' => User::all(),
+                'active' => 'user_all'
+            ]
+        );
     }
 
     /**
