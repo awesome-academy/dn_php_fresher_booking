@@ -23,3 +23,11 @@ mix.copy("resources/images/admin", "public/admin/images");
 mix.copy("resources/css/admin", "public/admin/css");
 
 mix.copy("resources/js/admin", "public/admin/js");
+
+mix.copy("resources/fonts/user", "public/user/fonts");
+
+mix.copy("resources/images/user", "public/user/images");
+
+mix.copy("resources/css/user", "public/user/css");
+
+mix.copy("resources/js/user", "public/user/js");
