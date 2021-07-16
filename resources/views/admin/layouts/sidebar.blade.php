@@ -10,14 +10,16 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;">
+                <a class="{{ $active ==='tour_all' ? 'active' : ''}}">
                     <i class="fa fa-book"></i>
                     <span>Tour</span>
                 </a>
                 <ul class="sub">
                     <li><a href="typography.html">{{ trans('messages.app_layout.request') }}</a></li>
                     <li><a href="glyphicon.html">{{ trans('messages.app_layout.category') }}</a></li>
-                    <li><a href="glyphicon.html">{{ trans('messages.app_layout.all') }}</a></li>
+                    <li><a href="/admin/tours"
+                            class="{{ $active ==='tour_all' ? 'active' : ''}}">{{ trans('messages.app_layout.all') }}</a>
+                    </li>
                 </ul>
             </li>
             <li class="sub-menu">

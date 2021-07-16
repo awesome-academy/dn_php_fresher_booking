@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TourRequest;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TourController extends Controller
 {
@@ -16,7 +17,10 @@ class TourController extends Controller
      */
     public function index()
     {
-        return Tour::all();
+        return View('admin.tour.index', [
+            'active' => 'tour_all',
+            'tours' => Tour::paginate(),
+        ]);
     }
 
     /**
@@ -86,7 +90,7 @@ class TourController extends Controller
                     'category_id' => $request->category_id,
                     'money' => $request->money,
                     'description' => $request->description,
-                    'id' => $request->id
+                    'id' => $request->id,
                 ];
                 $tour->update($attributes);
 
