@@ -24,7 +24,7 @@
     <!-- //calendar -->
     <!-- //font-awesome icons -->
     <script src="{{asset('admin/js/jquery2.0.3.min.js')}}"></script>
-    <script src="{	{asset('admin/js/raphael-min.js')}}"></script>
+    <script src="{{asset('admin/js/raphael-min.js')}}"></script>
     <script src="{{asset('admin/js/morris.js')}}"></script>
     @stack('scripts')
 </head>
@@ -97,8 +97,8 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="admin/images/2.png">
-                            <span class="username">{{Auth()->user()->name}}</span>
+                            <img alt="" src="{{asset('admin/images/2.png')}}">
+                            <span class="username">{{Session::get('user_name')}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">

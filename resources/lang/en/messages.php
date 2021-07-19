@@ -80,5 +80,15 @@ return [
         'time' => '10 minutes ago',
         'you_know' => 'DID YOU KNOW?',
         'label' => '@Lorem ipsum',
-    ]
+    ],
+    'admin_all_tour_page' => [
+        'table' => 'Tour Table',
+        'index' => 'Index',
+        'name' => 'Name',
+        'description' => 'Description',
+        'money' => 'Money',
+        'category_name' => 'Category Name',
+        'bookings' => 'Total Bookings',
+    ],
+
 ];
