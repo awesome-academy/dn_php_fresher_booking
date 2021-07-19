@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder
             TourSeeder::class,
             RateSeeder::class,
             BookingRequestSeeder::class,
+            FoodSeeder::class,
+            ReviewSeeder::class,
+            LikeSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
