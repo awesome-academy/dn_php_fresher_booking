@@ -1,27 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\User;
+namespace App\Http\Controllers\Admin\BookingRequest;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use App\Repositories\UserRepository;
-use App\User;
+use App\Models\BookingRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class BookingRequestController extends Controller
 {
-
-    protected $userRepository;
-
-    public function __construct(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::paginate();
+        return View('admin.bookings.index', [
+            'bookings' => BookingRequest::orderBy('created_at', 'DESC')->paginate(),
+            'active'    => 'bookings_all',
+        ]);
     }
 
     /**
@@ -48,18 +37,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $attributes = [
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'name' => $request->name,
-            'address' => $request->address,
-            'type' => Config::get('common.type_user.system_user'),
-            'is_admin' => false,
-        ];
-
-        return User::create($attributes);
+        //
     }
 
     /**
@@ -102,15 +82,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request)
+    public function destroy($id)
     {
-        if (isset($request->id) && Auth::user()->id !== $request->id) {
-            return User::destroy($request->id);
-        }
-    }
-
-    public function getAll()
-    {
-        return $this->userRepository->getAllUser();
+        //
     }
 }

@@ -5,11 +5,20 @@ namespace App\Http\Controllers\Admin\Tour;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TourRequest;
 use App\Models\Tour;
+use App\Repositories\TourRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class TourController extends Controller
 {
+
+    protected $tourRepository;
+
+    public function __construct(TourRepository $tourRepository)
+    {
+        $this->tourRepository = $tourRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -113,5 +122,10 @@ class TourController extends Controller
                 return $tour->delete();
             }
         }
+    }
+
+    public function getAll()
+    {
+        return $this->tourRepository->getAllTour();
     }
 }
