@@ -44,7 +44,7 @@
             <ul>
                 <li class="active1"><a href="index.html">{{ trans('messages.landing_page.home') }}</a></li>
                 <li><a href="about.html">{{ trans('messages.landing_page.about') }}</a></li>
-                <li><a href="services.html">{{ trans('messages.landing_page.review') }}</a></li>
+                <li><a href="/guest/tours">{{ trans('messages.landing_page.review') }}</a></li>
                 <li><a href="gallery.html">{{ trans('messages.landing_page.gallery') }}</a></li>
                 <li><a href="/dashboard">{{ trans('messages.landing_page.admin') }}</a></li>
                 <div class="clear"> </div>
