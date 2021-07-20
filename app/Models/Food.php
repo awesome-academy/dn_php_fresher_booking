@@ -9,6 +9,8 @@ class Food extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'foods';
+
     protected $appends = [
         'images',
     ];
@@ -26,6 +28,11 @@ class Food extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'imagetable');
+    }
+
+    public function reviews()
+    {
+        return $this->morphMany(Review::class, 'reviewtable');
     }
 
     public function getImagesAttribute()

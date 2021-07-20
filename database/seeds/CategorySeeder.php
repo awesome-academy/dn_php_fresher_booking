@@ -12,6 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        Category::truncate();
         $categories = [
             [
                 'name' => 'Long Trip',
