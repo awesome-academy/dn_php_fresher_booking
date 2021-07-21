@@ -90,5 +90,21 @@ return [
         'category_name' => 'Category Name',
         'bookings' => 'Total Bookings',
     ],
-
+    'admin_all_bookings_page' => [
+        'table' => 'Booking Request Table',
+        'index' => 'Index',
+        'name' => 'Customer Name',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'status' => 'Status',
+        'date' => 'Date Booking',
+        'note' => 'Note',
+        'tour' => 'Name Tour',
+        'action' => 'Action',
+        'detail' => 'Booking Details',
+        'money' => 'Money',
+    ],
+    'modal' => [
+        'save' => 'Save',
+    ]
 ];

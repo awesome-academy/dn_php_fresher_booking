@@ -10,15 +10,15 @@
             </li>
 
             <li class="sub-menu">
-                <a class="{{ $active ==='tour_all' ? 'active' : ''}}">
+                <a class="{{ $active ==='tour_all'||'bookings_all' ? 'active' : ''}}">
                     <i class="fa fa-book"></i>
                     <span>Tour</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="typography.html">{{ trans('messages.app_layout.request') }}</a></li>
+                    <li><a href="/admin/bookings" class="{{ $active ==='bookings_all' ? 'active' : ''}}">{{ trans('messages.app_layout.request') }}</a>
+                    </li>
                     <li><a href="glyphicon.html">{{ trans('messages.app_layout.category') }}</a></li>
-                    <li><a href="/admin/tours"
-                            class="{{ $active ==='tour_all' ? 'active' : ''}}">{{ trans('messages.app_layout.all') }}</a>
+                    <li><a href="/admin/tours" class="{{ $active ==='tour_all' ? 'active' : ''}}">{{ trans('messages.app_layout.all') }}</a>
                     </li>
                 </ul>
             </li>
@@ -29,8 +29,7 @@
                 </a>
                 <ul class="sub">
                     <li><a href="typography.html">{{ trans('messages.app_layout.review') }}</a></li>
-                    <li><a class="{{ $active ==='user_all' ? 'active' : ''}}"
-                            href="/admin/users">{{ trans('messages.app_layout.all') }}</a></li>
+                    <li><a class="{{ $active ==='user_all' ? 'active' : ''}}" href="/admin/users">{{ trans('messages.app_layout.all') }}</a></li>
                 </ul>
             </li>
             <li>
