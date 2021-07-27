@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,8 +19,6 @@ class Comment extends Model
     protected $fillable = [
         'user_id',
         'content',
-        'commentable_id',
-        'commentable_type',
     ];
 
     protected $casts = [
