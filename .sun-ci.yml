@@ -18,6 +18,8 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
     environment:
       APP_ENV: testing
+      MEMORY_LIMIT_PHP_FPM: 1G
+      COMPOSER_MEMORY_LIMIT: "-1"
     cache:
       - key: composer_vendor_$CI_BRANCH
         paths:
