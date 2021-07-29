@@ -19,6 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if(count($tours)>0)
                     @foreach($tours as $tour)
                     <tr data-expanded="true">
                         <td>{{ $loop->index +1 }}</td>
@@ -29,6 +30,7 @@
                         <td>{{$tour['bookings']}}</td>
                     </tr>
                     @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
