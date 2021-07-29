@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,8 +19,6 @@ class Review extends Model
         'user_id',
         'content',
         'title',
-        'reviewtable_id',
-        'reviewtable_table',
     ];
 
     protected $casts = [
@@ -40,6 +39,11 @@ class Review extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function getUserAttribute()
