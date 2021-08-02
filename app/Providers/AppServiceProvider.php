@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\BookingRequest\BookingRequestRepository;
+use App\Repositories\BookingRequest\BookingRequestRepositoryEloquent;
+use App\Repositories\Tour\TourRepository;
+use App\Repositories\Tour\TourRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +17,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            BookingRequestRepository::class,
+            BookingRequestRepositoryEloquent::class
+        );
+        $this->app->bind(
+            TourRepository::class,
+            TourRepositoryEloquent::class
+        );
     }
 
     /**
