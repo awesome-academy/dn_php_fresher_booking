@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Tour;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TourRequest;
 use App\Models\Tour;
-use App\Repositories\TourRepository;
+use App\Repositories\Tour\TourRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -28,7 +28,7 @@ class TourController extends Controller
     {
         return View('admin.tour.index', [
             'active' => 'tour_all',
-            'tours' => Tour::paginate(),
+            'tours' => $this->tourRepository->paginate(),
         ]);
     }
 
@@ -50,14 +50,8 @@ class TourController extends Controller
      */
     public function store(TourRequest $request)
     {
-        $attributes = [
-            'name' => $request->name,
-            'category_id' => $request->category_id,
-            'money' => $request->money,
-            'description' => $request->description,
-        ];
 
-        return Tour::create($attributes);
+        return $this->tourRepository->create($request->all());
     }
 
     /**
@@ -68,7 +62,7 @@ class TourController extends Controller
      */
     public function show($id)
     {
-        //
+        return  $this->tourRepository->find($id);
     }
 
     /**
@@ -91,21 +85,7 @@ class TourController extends Controller
      */
     public function update(TourRequest $request)
     {
-        if (isset($request->id)) {
-            $tour = Tour::find($request->id);
-            if (isset($tour)) {
-                $attributes = [
-                    'name' => $request->name,
-                    'category_id' => $request->category_id,
-                    'money' => $request->money,
-                    'description' => $request->description,
-                    'id' => $request->id,
-                ];
-                $tour->update($attributes);
-
-                return $tour;
-            }
-        }
+        return $this->tourRepository->update($request->all(), $request->id);
     }
 
     /**
@@ -116,16 +96,11 @@ class TourController extends Controller
      */
     public function destroy(Request $request)
     {
-        if (isset($request->id)) {
-            $tour = Tour::find($request->id);
-            if (isset($tour)) {
-                return $tour->delete();
-            }
-        }
+        return $this->tourRepository->delete($request->id);
     }
 
     public function getAll()
     {
-        return $this->tourRepository->getAllTour();
+        return $this->tourRepository->all();
     }
 }

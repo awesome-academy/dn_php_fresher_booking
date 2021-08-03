@@ -4,10 +4,18 @@ namespace App\Http\Controllers\Admin\BookingRequest;
 
 use App\Http\Controllers\Controller;
 use App\Models\BookingRequest;
+use App\Repositories\BookingRequest\BookingRequestRepository;
 use Illuminate\Http\Request;
 
 class BookingRequestController extends Controller
 {
+
+    private $bookingRepository;
+
+    public function __construct(BookingRequestRepository $bookingRepository)
+    {
+        $this->bookingRepository = $bookingRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +24,7 @@ class BookingRequestController extends Controller
     public function index()
     {
         return View('admin.bookings.index', [
-            'bookings' => BookingRequest::orderBy('created_at', 'DESC')->paginate(),
+            'bookings' => $this->bookingRepository->orderBy('created_at', 'DESC')->paginate(),
             'active'    => 'bookings_all',
         ]);
     }
@@ -37,9 +45,9 @@ class BookingRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookingRequest $request)
     {
-        //
+        return $this->bookingRepository->create($request->all());
     }
 
     /**
@@ -50,7 +58,7 @@ class BookingRequestController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->bookingRepository->find($id);
     }
 
     /**
@@ -71,9 +79,9 @@ class BookingRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookingRequest $request, $id)
     {
-        //
+        return $this->bookingRepository->update($request->all(), $id);
     }
 
     /**
@@ -84,6 +92,6 @@ class BookingRequestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->bookingRepository->delete($id);
     }
 }
