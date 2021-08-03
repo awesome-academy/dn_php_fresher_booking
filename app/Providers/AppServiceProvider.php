@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use App\Repositories\BookingRequest\BookingRequestRepository;
 use App\Repositories\BookingRequest\BookingRequestRepositoryEloquent;
+use App\Repositories\Comment\CommentRepository;
+use App\Repositories\Comment\CommentRepositoryEloquent;
+use App\Repositories\Rate\RateRepository;
+use App\Repositories\Rate\RateRepositoryEloquent;
+use App\Repositories\Review\ReviewRepository;
+use App\Repositories\Review\ReviewRepositoryEloquent;
 use App\Repositories\Tour\TourRepository;
 use App\Repositories\Tour\TourRepositoryEloquent;
 use App\Repositories\User\UserRepository;
@@ -30,6 +36,18 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             UserRepository::class,
             UserRepositoryEloquent::class
+        );
+        $this->app->bind(
+            CommentRepository::class,
+            CommentRepositoryEloquent::class
+        );
+        $this->app->bind(
+            RateRepository::class,
+            RateRepositoryEloquent::class
+        );
+        $this->app->bind(
+            ReviewRepository::class,
+            ReviewRepositoryEloquent::class
         );
     }
 
