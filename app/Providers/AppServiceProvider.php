@@ -6,6 +6,8 @@ use App\Repositories\BookingRequest\BookingRequestRepository;
 use App\Repositories\BookingRequest\BookingRequestRepositoryEloquent;
 use App\Repositories\Tour\TourRepository;
 use App\Repositories\Tour\TourRepositoryEloquent;
+use App\Repositories\User\UserRepository;
+use App\Repositories\User\UserRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             TourRepository::class,
             TourRepositoryEloquent::class
+        );
+        $this->app->bind(
+            UserRepository::class,
+            UserRepositoryEloquent::class
         );
     }
 

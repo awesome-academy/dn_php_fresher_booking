@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Repositories\UserRepository;
+use App\Repositories\User\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +29,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::paginate();
+        return View('admin.user.index', [
+            'active' => 'user_all',
+            'users' => $this->userRepository->paginate(),
+        ]);
     }
 
     /**
@@ -59,7 +62,7 @@ class UserController extends Controller
             'is_admin' => false,
         ];
 
-        return User::create($attributes);
+        return $this->userRepository->create($attributes);
     }
 
     /**
@@ -70,7 +73,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->userRepository->find($id);
     }
 
     /**
@@ -91,9 +94,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        return $this->userRepository->update($request->all(), $id);
     }
 
     /**
@@ -104,8 +107,8 @@ class UserController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        if (isset($request->id) && Auth::user()->id !== $request->id) {
-            return User::destroy($request->id);
+        if (Auth::user()->id !== $id) {
+            return $this->userRepository->delete($id);
         }
     }
 
