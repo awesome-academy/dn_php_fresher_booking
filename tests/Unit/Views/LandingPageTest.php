@@ -18,5 +18,6 @@ class LandingPageTest extends TestCase
         $response->assertSeeText(trans('messages.landing_page.about'));
         $response->assertSeeText(trans('messages.landing_page.review'));
         $response->assertSeeText(trans('messages.landing_page.admin'));
+        //asdav
     }
 }

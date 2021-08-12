@@ -106,5 +106,11 @@ return [
     ],
     'modal' => [
         'save' => 'Save',
-    ]
+    ],
+    'schedule_send_mail_admin' => [
+        'title' => 'Admin Check Booking',
+        'content' => 'We have ',
+        'thanks' => 'Thank you ',
+        'action' => 'Click button',
+    ],
 ];
