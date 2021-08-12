@@ -18,5 +18,7 @@ class UserTest extends TestCase
             'is_admin',
         ];
         $this->assertEquals($columns, (new User)->getFillable());
+
+        //new
     }
 }
