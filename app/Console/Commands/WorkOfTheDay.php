@@ -31,12 +31,8 @@ class WorkOfTheDay extends Command
      *
      * @return void
      */
-    public function __construct(
-        BookingRepository $bookingRepository,
-        UserRepository $userRepository
-    ) {
-        $this->bookingRepository = $bookingRepository;
-        $this->userRepository = $userRepository;
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -47,16 +43,5 @@ class WorkOfTheDay extends Command
      */
     public function handle()
     {
-        $data = [
-            'totalBookings' => count($this->bookingRepository->where(Config::get('common.status_booking.process'))->get()),
-            'title' => trans('messages.schedule_send_mail_admin.title'),
-            'content' => trans('messages.schedule_send_mail_admin.content'),
-            'action' => trans('messages.schedule_send_mail_admin.action'),
-            'thanks' => trans('messages.schedule_send_mail_admin.thanks'),
-        ];
-
-        $admins = $this->userRepository->where('is_admin', true)->get();
-
-        Notification::send($admins, new WorkOnDay($data));
     }
 }
