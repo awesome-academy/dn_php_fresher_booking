@@ -55,7 +55,7 @@ class UserControllerTest extends TestCase
     {
         $data = [
             'name' => 'thao',
-            'email' => 'thao12123@com.co',
+            'email' => 'thao15243@com.co',
             'password' => '123456',
             'address' => 'Quang Nam',
             'type' => '1',
